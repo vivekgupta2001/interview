@@ -2,12 +2,10 @@ package com.acme.mytrader.strategy;
 
 import com.acme.mytrader.execution.ExecutionService;
 import com.acme.mytrader.price.BuyPriceListenerImpl;
+import com.acme.mytrader.price.PriceListener;
 import com.acme.mytrader.price.PriceSource;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
-
-import java.util.List;
 
 /**
  * <pre>
@@ -17,21 +15,14 @@ import java.util.List;
  */
 @AllArgsConstructor
 public class TradingStrategy {
-    private ExecutionService executionService ;
     private PriceSource priceSource;
+    private PriceListener priceListener;
 
-    public void autoOrderMonitor(List<Security> securities) {
-        securities.forEach( security -> {
-            priceSource.addPriceListener(new BuyPriceListenerImpl(executionService, security.getSecurityName(),
-                    security.getVolume(), security.getPriceThreshHold()));
-        });
+    public void enableAutoOrderMonitor() {
+        priceSource.addPriceListener(priceListener);
     }
-}
 
-@Getter
-@AllArgsConstructor
-class Security {
-    private final String securityName;
-    private final int volume;
-    private final double priceThreshHold;
+    public void disableAutoOrderMonitor() {
+        priceSource.removePriceListener(priceListener);
+    }
 }

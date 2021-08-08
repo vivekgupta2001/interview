@@ -36,6 +36,6 @@ public class BuyPriceListenerImplTest {
     public void priceUpdateWhenPriceIsAboveThreshHold() {
         final PriceListener priceListener = new BuyPriceListenerImpl(executionService, "IBM", 100, 60);
         priceListener.priceUpdate("IBM", 70);
-        verify(executionService, times(0)).buy("IBM", 50, 100);
+        verify(executionService, times(0)).buy("IBM", 70, 100);
     }
 }
