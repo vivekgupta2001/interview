@@ -17,6 +17,10 @@ public class TradingStrategy {
 
     public void enableAutoOrderMonitor() {
         priceSource.addPriceListener(priceListener);
+        /**
+         * PriceSource will call priceUpdate on priceListener at regular interval
+         * from here...
+         */
     }
 
     public void disableAutoOrderMonitor() {
