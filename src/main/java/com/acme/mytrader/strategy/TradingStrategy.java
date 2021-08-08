@@ -1,11 +1,8 @@
 package com.acme.mytrader.strategy;
 
-import com.acme.mytrader.execution.ExecutionService;
-import com.acme.mytrader.price.BuyPriceListenerImpl;
 import com.acme.mytrader.price.PriceListener;
 import com.acme.mytrader.price.PriceSource;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 /**
  * <pre>

@@ -2,7 +2,6 @@ package com.acme.mytrader.price;
 
 import com.acme.mytrader.execution.ExecutionService;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 @AllArgsConstructor
 public class BuyPriceListenerImpl implements PriceListener {
